@@ -1,0 +1,33 @@
+version: '3'
+services:
+  backend:
+    image: node:14.5.0-alpine3.12
+    user: $UID:$GID
+    working_dir: /srv/shoppingcart
+    expose: 
+      - $HTTP_PORT
+    command: npx nodemon
+    environment: 
+      - NODE_ENV
+      - DB_URL
+      - HTTP_PORT
+    depends_on: 
+      - postgres
+    ports:
+    - "$HTTP_PORT:4000"
+    volumes: 
+      - .:/srv/shoppingcart/:rw
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro      
+  postgres:
+    environment: 
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB    
+    image: postgres:12-alpine
+    ports: 
+      - "5432:5432"
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
+volumes: 
+  postgres_data:

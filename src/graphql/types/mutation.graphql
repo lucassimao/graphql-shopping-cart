@@ -1,0 +1,9 @@
+type Mutation{
+    """
+        It can be used to both save and update.
+        The presence of the 'id' property triggers an update, otherwise a save is executed 
+    """
+    newShoppingCart(shoppingCart: ShoppingCartInput!): ShoppingCart
+    deleteShoppingCart(id: ID!): Boolean
+    deleteShoppingCartItem(id: ID!): Boolean
+}

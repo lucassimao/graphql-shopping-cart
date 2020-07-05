@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "types": ["node", "jest"],
+    "typeRoots": ["node_modules/@types"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowJs": false,
+    "checkJs": false,
+    "target": "es2019",
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "typeAcquisition": {
+    "enable": false
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

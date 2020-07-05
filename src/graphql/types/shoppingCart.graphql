@@ -1,0 +1,5 @@
+type ShoppingCart {
+  id: ID!
+  status: ShoppingCartStatus
+  items: [ShoppingCartItem!]
+}

@@ -1,0 +1,70 @@
+{
+  "name": "graphql-shopping-cart",
+  "version": "0.0.1",
+  "description": "Graphql backend for a shopping cart",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "rm -rf ./build && tsc && cp -r ./src/graphql/types ./build/graphql",
+    "start": "UID=$(id -u) GID=$(id -g) docker-compose up backend",
+    "typeorm": "sh ./bin/typeorm.sh",
+    "format": "prettier --write \"src/**/*.{ts,js,json}\"",
+    "lint": "eslint --ext js,jsx,ts,tsx ./src",
+    "test": "npm run build && sh ./bin/run-tests.sh"
+  },
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,tsx,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lucassimao/graphql-shopping-cart.git"
+  },
+  "author": "Lucas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucassimao/graphql-shopping-cart/issues"
+  },
+  "homepage": "https://github.com/lucassimao/graphql-shopping-cart#readme",
+  "dependencies": {
+    "@graphql-tools/load-files": "^6.0.10",
+    "@graphql-tools/merge": "^6.0.10",
+    "apollo-server": "^2.15.0",
+    "class-validator": "^0.12.2",
+    "graphql": "^14.6.0",
+    "graphql-parse-resolve-info": "^4.7.0",
+    "graphql-scalars": "^1.2.1",
+    "pg": "^8.2.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.25",
+    "winston": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.0.13",
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.6"
+  }
+}

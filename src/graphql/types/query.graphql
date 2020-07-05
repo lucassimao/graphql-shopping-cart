@@ -1,0 +1,5 @@
+type Query {
+  shoppingCarts(filter: ShoppingCartFilterInput): [ShoppingCart]
+  shoppingCart(id: ID!): ShoppingCart
+  countShoppingCarts(filter: ShoppingCartFilterInput): Int
+}
