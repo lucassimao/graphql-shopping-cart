@@ -43,7 +43,7 @@
     "@graphql-tools/load-files": "^6.0.10",
     "@graphql-tools/merge": "^6.0.10",
     "apollo-server": "^2.15.0",
-    "class-validator": "^0.12.2",
+    "class-validator": "^0.14.0",
     "graphql": "^14.6.0",
     "graphql-parse-resolve-info": "^4.7.0",
     "graphql-scalars": "^1.2.1",
